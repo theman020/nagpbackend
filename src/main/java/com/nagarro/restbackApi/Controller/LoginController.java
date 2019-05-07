@@ -20,8 +20,6 @@ public class LoginController {
 	
 	@RequestMapping(value = "/admin-login",method  ={RequestMethod.POST},consumes = "application/json")
 	public NagpAdmin authenticate(@RequestBody NagpAdmin user) {
-		System.out.println("in login post");
-		System.out.println(user .getEmail() +" "+user.getPassword());
 		return loginService.authenticate(user);
 	}
 	

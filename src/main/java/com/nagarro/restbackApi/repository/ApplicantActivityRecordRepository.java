@@ -29,9 +29,9 @@ public interface ApplicantActivityRecordRepository extends JpaRepository<Applica
 	
 	@Modifying
 	@Transactional
-	@Query(value = "update  applicant_activity_record set status=:status , percentage_score=:percentage_score, points_earned=:points_earned where  record_id =:record_id ",nativeQuery = true)
+	@Query(value = "update  applicant_activity_record set status=:status, count=:count, percentage_score=:percentage_score, points_earned=:points_earned where  record_id =:record_id ",nativeQuery = true)
 	public void updateActivityStatus(@RequestParam("percentage_score") double percentage_score, @RequestParam("points_earned") double points_earned,
-										@RequestParam("status") String status,@RequestParam("record_id") int record_id);
+										@RequestParam("status") String status,@RequestParam("record_id") int record_id, @RequestParam("count") int count);
 	
 	@Query(value = "SELECT sum(points_earned) FROM applicant_activity_record where applicant_id =:applicant_id",nativeQuery = true)
 	public double getTotalScore(@RequestParam("applicant_id") int applicant_id);

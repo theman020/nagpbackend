@@ -44,21 +44,11 @@ public class EmailController {
                 });
                 Message msg = new MimeMessage(session);
                 msg.setFrom(new InternetAddress("knightdark1818@gmail.com", false));
-
+                System.out.println("in email");
                 msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(details.getEmail()));
                 msg.setSubject("You are Registered");
-                msg.setContent("Daman email", "text/html");
+                msg.setContent("Your password is :-"+ details.getPassword(), "text/html");
                 msg.setSentDate(new Date());
-
-                MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setContent("You are reistered with password : "+details.getPassword(), "text/html");
-
-                Multipart multipart = new MimeMultipart();
-                multipart.addBodyPart(messageBodyPart);
-                MimeBodyPart attachPart = new MimeBodyPart();
-
-                multipart.addBodyPart(attachPart);
-                msg.setContent(multipart);
                 Transport.send(msg);   
              }
 

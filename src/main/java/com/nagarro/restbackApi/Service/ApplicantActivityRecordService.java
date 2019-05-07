@@ -107,10 +107,11 @@ public class ApplicantActivityRecordService {
 	public void updateActivityStatus(double percentage_score, String status, int record_id) {
 		ApplicantActivityRecord fetched=applicantActivityRecordRepository.findById(record_id).get();
 		double points_earned = 0;
+		int count=fetched.getCount()+1;
 		if(status.equals("COMPLETED")) {
 			points_earned = (fetched.getActivity().getQualifyPoints()*percentage_score)/100;
 		}
-		applicantActivityRecordRepository.updateActivityStatus(percentage_score,points_earned,status, record_id);
+		applicantActivityRecordRepository.updateActivityStatus(percentage_score,points_earned,status, record_id,count);
 		
 	}
 
