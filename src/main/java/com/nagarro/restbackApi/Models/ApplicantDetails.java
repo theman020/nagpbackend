@@ -45,8 +45,7 @@ public class ApplicantDetails {
 	@JoinColumn(name="levelId")
 	private Level level;
 	
-//	@OneToMany(mappedBy = "applicantDetails")
-//	List<ApplicantActivityRecord> records;
+
 
 	@Enumerated(EnumType.STRING)
 	@Column(length = 10)

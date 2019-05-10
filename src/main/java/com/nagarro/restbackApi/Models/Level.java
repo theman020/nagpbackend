@@ -10,7 +10,6 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
 @Entity
-//@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(uniqueConstraints =@UniqueConstraint(columnNames={"levelNumber"}) )
 public class Level {
 	@Override
@@ -27,11 +26,6 @@ public class Level {
 	private String levelDesc;
 	private int qualifyPoints;
 
-//	@OneToMany(mappedBy = "level")
-//	private List<Activity> activity=new ArrayList<>();
-//
-//	@OneToMany(mappedBy = "level")
-//	private List<ApplicantDetails> applicantDetails=new ArrayList<>();
 
 	public String getLevelId() {
 		return levelId;

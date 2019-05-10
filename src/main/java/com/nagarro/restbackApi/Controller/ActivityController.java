@@ -33,13 +33,11 @@ public class ActivityController {
 
 	@RequestMapping(value = "/addActivity", method = { RequestMethod.POST }, consumes = "application/json")
 	public void addActivity(@RequestBody Activity activityToAdd) {
-		System.out.println(activityToAdd);
 		activityService.addActivity(activityToAdd);
 	}
 
 	@RequestMapping(value = "/activity/{id}", method = { RequestMethod.PUT }, consumes = "application/json")
 	public void updateActivity(@RequestBody Activity newActivity,@PathVariable String id) {
-		System.out.println("In update of Activity called ");
 		activityService.updateActivity(id,newActivity); 
 	}
 	

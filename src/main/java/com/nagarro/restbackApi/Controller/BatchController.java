@@ -33,13 +33,11 @@ public class BatchController {
 
 	@RequestMapping(value = "/addBatch", method = { RequestMethod.POST }, consumes = "application/json")
 	public void addBatch(@RequestBody Batch batchToAdd) {
-		System.out.println(batchToAdd);
 		batchService.addBatch(batchToAdd);
 	}
 
 	@RequestMapping(value = "/batch/{id}", method = { RequestMethod.PUT }, consumes = "application/json")
 	public void updateBatch(@RequestBody Batch newBatch,@PathVariable String id) {
-		System.out.println("In update of batch called ");
 		batchService.updateBatch(id,newBatch); 
 	}
 	

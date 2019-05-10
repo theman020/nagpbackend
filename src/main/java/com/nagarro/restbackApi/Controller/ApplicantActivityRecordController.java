@@ -29,7 +29,6 @@ public class ApplicantActivityRecordController {
 	
 	@RequestMapping(value = "/addApplicantActivity",method = {RequestMethod.POST},consumes = "application/json")
 	public void addApplicantActivity(@RequestBody ApplicantActivityRecord applicantActivityRecord) {
-		System.out.println(applicantActivityRecord);
 		applicantActivityrecordService.addApplicantActivity(applicantActivityRecord);
 		
 	}
@@ -54,11 +53,8 @@ public class ApplicantActivityRecordController {
 	
 	@RequestMapping(value = "/updateActivityStatus/{id}" ,method = { RequestMethod.PUT }, consumes = "application/json")
 	public void updateActivityStatus(@RequestBody ApplicantActivityRecord object,@PathVariable int id ) {
-		System.out.println("***************32143141");
-		System.out.println("PErcentage score is "+object.getPercentageScore());
 		applicantActivityrecordService.updateActivityStatus(object.getPercentageScore(),object.getStatus().toString(),id);
-		System.out.println("***************");
-	}
+		}
 	
 	@RequestMapping(value = "/applicantScore/{id}")
 	public double getApplicantScoreById(@PathVariable int id) {

@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-//@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Batch {
 
 	@Id
@@ -25,12 +24,6 @@ public class Batch {
 	
 	private String startDate;
 	
-	
-//	@OneToMany(mappedBy = "batch")
-//	private List<Activity> activity;
-//	
-//	@OneToMany(mappedBy = "batch")
-//	private List<ApplicantDetails> applicantDetails ;
 	
 	
 	public String getBatchId() {

@@ -15,7 +15,6 @@ import com.nagarro.restbackApi.Enums.Status;
 
 
 @Entity
-//@Table(uniqueConstraints=@UniqueConstraint(columnNames = {"applicantId"}))
 public class ApplicantActivityRecord {
 	
 	@Id

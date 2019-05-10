@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(uniqueConstraints =@UniqueConstraint(columnNames={"levelId","batchId","name"}) )
-//@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Activity {
 	
 	@Id
@@ -81,14 +80,6 @@ public class Activity {
 		this.level = level;
 	}
 	
-//	public List<ApplicantActivityRecord> getApplicantActivityRecords() {
-//		return applicantActivityRecords;
-//	}
-//
-//	public void setApplicantActivityRecords(List<ApplicantActivityRecord> applicantActivityRecords) {
-//		this.applicantActivityRecords = applicantActivityRecords;
-//	}
-
 	public String getName() {
 		return name;
 	}

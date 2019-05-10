@@ -33,15 +33,11 @@ public class LevelController {
 
 	@RequestMapping(value = "/addLevel", method = { RequestMethod.POST }, consumes = "application/json")
 	public void addLevel(@RequestBody Level levelToAdd) {
-		System.out.println(levelToAdd);
 		levelservice.addLevel(levelToAdd);
 	}
 
 	@RequestMapping(value = "/level/{id}", method = { RequestMethod.PUT }, consumes = "application/json")
 	public void updateLevel(@RequestBody Level newLevel,@PathVariable String id) {
-		System.out.println("******");
-		System.out.println(newLevel.getLevelName() +  " , "+ newLevel.getLevelDesc() + " ," +newLevel.getQualifyPoints() );
-		System.out.println("******");
 		levelservice.updateLevel(id,newLevel); 
 	}
 	

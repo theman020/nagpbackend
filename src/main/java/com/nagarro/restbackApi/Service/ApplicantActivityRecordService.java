@@ -44,14 +44,12 @@ public class ApplicantActivityRecordService {
 			return "true";
 		}
 		else {
-			System.out.println("in else");
 			//check if status is complete,we have to disable button
 			if(fetchallRecords.get(0).getStatus().toString().equals("COMPLETED")) {
 				logger.info("status is completed");
 				return "COMPLETED";
 			}
 			else if(fetchallRecords.get(0).getStatus().toString().equals("REVIEW_FAILED")) {
-				System.out.println("review match failed hit ");
 				logger.info("status is failed");
 				logger.info("count is ="+fetchallRecords.get(0).getCount());
 				int count=fetchallRecords.get(0).getCount();
@@ -59,9 +57,7 @@ public class ApplicantActivityRecordService {
 				int maxAttempts=fetchallRecords.get(0).getActivity().getMaxAttempts();
 				if(count<maxAttempts) {
 					//we can reAttempt the activity
-					System.out.println("about to update the count");
-					System.out.println("record id is "+fetchallRecords.get(0).getRecordId());
-					NextAttemptForActivity(fetchallRecords.get(0));
+					nextAttemptForActivity(fetchallRecords.get(0));
 					return "ADDMORE";
 				}
 				
@@ -77,7 +73,7 @@ public class ApplicantActivityRecordService {
 		}
 	}
 	
-	private void NextAttemptForActivity(ApplicantActivityRecord applicantActivityRecord) {
+	private void nextAttemptForActivity(ApplicantActivityRecord applicantActivityRecord) {
 		// TODO Auto-generated method stub
 		logger.info("information==>"+applicantActivityRecord);
 		logger.info("new count is="+applicantActivityRecord.getCount()+1);
@@ -100,7 +96,6 @@ public class ApplicantActivityRecordService {
 			status="REVIEW_PENDING";
 			applicantActivityRecordRepository.updateActivityRecord(status,recordid);
 		}
-		System.out.println(fetched);
 		applicantActivityRecordRepository.updateActivityRecord(status,recordid);
 	}
 

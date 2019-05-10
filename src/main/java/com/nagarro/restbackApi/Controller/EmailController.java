@@ -44,7 +44,6 @@ public class EmailController {
                 });
                 Message msg = new MimeMessage(session);
                 msg.setFrom(new InternetAddress("knightdark1818@gmail.com", false));
-                System.out.println("in email");
                 msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(details.getEmail()));
                 msg.setSubject("You are Registered");
                 msg.setContent("Your password is :-"+ details.getPassword(), "text/html");
